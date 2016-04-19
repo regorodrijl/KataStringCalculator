@@ -28,4 +28,10 @@ public class TestStringCalculator {
 		assertEquals(1, shouldBeOne);
 		assertEquals(2, shouldBeTwo);
 	}
+	
+	@Test
+	public void testTwoNumbersReturnTheSumOfThems() {
+		int shouldBeThree = sc.add("1,2");
+		assertEquals(3, shouldBeThree);
+	}
 }
