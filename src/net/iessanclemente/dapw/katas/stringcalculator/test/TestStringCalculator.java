@@ -8,15 +8,24 @@ import org.junit.Test;
 
 public class TestStringCalculator {
 
+	private StringCalculator sc;
+
 	@Before
 	public void setUp() throws Exception {
+		sc = new StringCalculator();
 	}
 
 	@Test
 	public void testEmtyStringReturnCero() {
-		StringCalculator sc = new StringCalculator();
 		int result = sc.add("");
 		assertEquals(0, result);
 	}
 
+	@Test
+	public void testAtNumberReturnTheNumber() {
+		int shouldBeOne = sc.add("1");
+		int shouldBeTwo = sc.add("2");
+		assertEquals(1, shouldBeOne);
+		assertEquals(2, shouldBeTwo);
+	}
 }
