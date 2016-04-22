@@ -28,12 +28,13 @@ public class TestStringCalculator {
 		assertEquals(1, shouldBeOne);
 		assertEquals(2, shouldBeTwo);
 	}
-	
+
 	@Test
 	public void testTwoNumbersReturnTheSumOfThems() {
 		int shouldBeThree = sc.add("1,2");
 		assertEquals(3, shouldBeThree);
 	}
+
 	@Test
 	public void testManyNumbersReturnTheSumOfThems() {
 		int shouldBeSix = sc.add("1,2,3");
@@ -41,9 +42,30 @@ public class TestStringCalculator {
 		assertEquals(6, shouldBeSix);
 		assertEquals(10, shouldBeTen);
 	}
+
 	@Test
 	public void testCRSeparator() {
 		int shouldBeThree = sc.add("1\n2");
 		assertEquals(3, shouldBeThree);
+	}
+
+	@Test
+	public void testCRAndColonSeparator() {
+		int shouldBeSix = sc.add("1\n2,3");
+		assertEquals(6, shouldBeSix);
+	}
+
+	@Test
+	public void testContiguousSeparatorDoesntWork() {
+		NumberFormatException lanzada = null;
+		try {
+			// int shouldBeFour = sc.add("1\n,3");
+			sc.add("1\n,3");
+			// assertEquals(4, shouldBeFour);
+		} catch (NumberFormatException e) {
+			lanzada = e;
+		}
+		assertNotNull(lanzada);
+
 	}
 }
