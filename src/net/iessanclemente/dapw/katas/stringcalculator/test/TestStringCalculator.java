@@ -73,4 +73,16 @@ public class TestStringCalculator {
 		int shouldBeSix = sc.add("//@\n1@2@3");
 		assertEquals(6, shouldBeSix);
 	}
+
+	@Test
+	public void testNegativesThrowIllegalArgumentException() {
+		IllegalArgumentException lanzada = null;
+		try {
+			sc.add("1,-3");
+		} catch (IllegalArgumentException e) {
+			lanzada = e;
+			System.out.println(e.getMessage());
+		}
+		assertNotNull(lanzada);
+	}
 }

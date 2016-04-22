@@ -14,7 +14,12 @@ public class StringCalculator {
 			}
 			String[] numberList = txt.split(separators);
 			for (String aNumber : numberList) {
-				result += Integer.parseInt(aNumber);
+				int n = Integer.parseInt(aNumber);
+				if (n < 0) {
+					throw new IllegalArgumentException(
+							"No se admiten negativos: " + n);
+				}
+				result += n;
 			}
 		}
 		return result;
