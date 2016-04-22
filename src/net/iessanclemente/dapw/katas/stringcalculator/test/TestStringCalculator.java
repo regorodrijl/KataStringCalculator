@@ -66,6 +66,11 @@ public class TestStringCalculator {
 			lanzada = e;
 		}
 		assertNotNull(lanzada);
+	}
 
+	@Test
+	public void testCustomSeparator() {
+		int shouldBeSix = sc.add("//@\n1@2@3");
+		assertEquals(6, shouldBeSix);
 	}
 }
