@@ -12,7 +12,7 @@ public class StringCalculator {
 			result = Integer.parseInt(txt);
 			break;
 		default:
-			String [] numberList = txt.split(",");
+			String [] numberList = txt.split(",|\n");
 			for(String aNumber : numberList){
 				result += Integer.parseInt(aNumber);
 			}
