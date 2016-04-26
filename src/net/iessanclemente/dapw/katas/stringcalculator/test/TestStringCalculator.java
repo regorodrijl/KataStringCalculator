@@ -1,7 +1,9 @@
 package net.iessanclemente.dapw.katas.stringcalculator.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import net.iessanclemente.dapw.katas.stringcalculator.StringCalculator;
+import net.iessanclemente.dapw.katas.stringcalculator.exception.NegativeNotSupportedException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -75,11 +77,11 @@ public class TestStringCalculator {
 	}
 
 	@Test
-	public void testNegativesThrowIllegalArgumentException() {
-		IllegalArgumentException lanzada = null;
+	public void testNegativesThrowNegativeNotSupportedException() {
+		NegativeNotSupportedException lanzada = null;
 		try {
 			sc.add("1,-3");
-		} catch (IllegalArgumentException e) {
+		} catch (NegativeNotSupportedException e) {
 			lanzada = e;
 			System.out.println(e.getMessage());
 		}
