@@ -87,4 +87,16 @@ public class TestStringCalculator {
 		}
 		assertNotNull(lanzada);
 	}
+
+	@Test
+	public void testManyNegativesThrowNegativeNotSupportedExceptionWithManyNumbers() {
+		NegativeNotSupportedException lanzada = null;
+		try {
+			sc.add("1,-3,-4,-6,-153");
+		} catch (NegativeNotSupportedException e) {
+			lanzada = e;
+			System.out.println(e.getMessage());
+		}
+		assertEquals(4, lanzada.getNegatives().length);
+	}
 }
